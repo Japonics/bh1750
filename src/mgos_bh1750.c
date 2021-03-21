@@ -27,7 +27,7 @@ struct mgos_bh1750 {
 };
 
 struct mgos_bh1750 *mgos_bh1750_create(int addrSlot) {
-  uint8_t addr = get_slot(addrSlot)
+  uint8_t addr = get_slot(addrSlot);
   struct mgos_i2c *i2c = mgos_i2c_get_bus(0);
   if (i2c == NULL) {
     LOG(LL_ERROR, ("Could not get global I2C instance. Is I2C enabled?"));
