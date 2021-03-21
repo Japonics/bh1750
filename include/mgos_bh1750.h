@@ -37,7 +37,7 @@ uint8_t mgos_bh1750_detect_i2c(struct mgos_i2c *i2c);
 
 // Create and initialize sensor.
 // Will return NULL if unsable to communicate.
-struct mgos_bh1750 *mgos_bh1750_create();
+struct mgos_bh1750 *mgos_bh1750_create(int addr);
 struct mgos_bh1750 *mgos_bh1750_create_i2c(struct mgos_i2c *i2c, uint8_t addr);
 
 void mgos_bh1750_free(struct mgos_bh1750 *ds);
@@ -55,6 +55,8 @@ void mgos_bh1750_free(struct mgos_bh1750 *ds);
 // configuration.
 bool mgos_bh1750_set_config(struct mgos_bh1750 *bh, enum mgos_bh1750_mode mode,
                             int mtime);
+
+uint8_t get_slot(int addrSlot);
 
 // Returns wait time, in milliseconds, until next sample is ready.
 int mgos_bh1750_get_wait_time_ms(struct mgos_bh1750 *bh);

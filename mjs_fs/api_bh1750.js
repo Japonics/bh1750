@@ -1,15 +1,15 @@
 let BH1750 = {
 
-    _create: ffi('void* mgos_bh1750_create()'),
+    _create: ffi('void* mgos_bh1750_create(int)'),
     _close: ffi('void mgos_bh1750_free(void *)'),
     _read_lux: ffi('float mgos_bh1750_read_lux(void *)'),
 
     // ## **`BH1750.create(addr)`**
     // Create a BH1750 instance: an object with the methods described below.
     // `addr` is an i2c address of the BH1750 sensor.
-    create: function () {
+    create: function (addSlot) {
         let obj = Object.create(BH1750._proto);
-        obj.bh1750 = BH1750._create();
+        obj.bh1750 = BH1750._create(addSlot);
         return obj.bh1750 ? obj : null;
     },
 

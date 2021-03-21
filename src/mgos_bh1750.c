@@ -26,13 +26,26 @@ struct mgos_bh1750 {
   uint16_t meas_time_ms;
 };
 
-struct mgos_bh1750 *mgos_bh1750_create() {
+struct mgos_bh1750 *mgos_bh1750_create(int addrSlot) {
+  uint8_t addr = get_slot(addrSlot)
   struct mgos_i2c *i2c = mgos_i2c_get_bus(0);
   if (i2c == NULL) {
     LOG(LL_ERROR, ("Could not get global I2C instance. Is I2C enabled?"));
     return NULL;
   }
-  return mgos_bh1750_create_i2c(i2c, BH1750_ADDR_0);
+  return mgos_bh1750_create_i2c(i2c, addr);
+}
+
+uint8_t get_slot(int addrSlot) {
+    if (addrSlot == 0) {
+        return BH1750_ADDR_0;
+    }
+
+    if (addrSlot == 1) {
+        return BH1750_ADDR_1;
+    }
+
+    return BH1750_ADDR_0;
 }
 
 // Probe for sensor. It has no identification register so we use reset behavior
