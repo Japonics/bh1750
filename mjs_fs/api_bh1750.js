@@ -1,6 +1,6 @@
 let BH1750 = {
 
-    _create: ffi('void *mgos_bh1750_create(uint8_t)'),
+    _create: ffi('void* mgos_bh1750_create()'),
     _close: ffi('void mgos_bh1750_free(void *)'),
     _read_lux: ffi('float mgos_bh1750_read_lux(void *)'),
 

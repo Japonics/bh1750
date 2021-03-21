@@ -37,7 +37,7 @@ uint8_t mgos_bh1750_detect_i2c(struct mgos_i2c *i2c);
 
 // Create and initialize sensor.
 // Will return NULL if unsable to communicate.
-struct mgos_bh1750 *mgos_bh1750_create(uint8_t addr);
+struct mgos_bh1750 *mgos_bh1750_create();
 struct mgos_bh1750 *mgos_bh1750_create_i2c(struct mgos_i2c *i2c, uint8_t addr);
 
 void mgos_bh1750_free(struct mgos_bh1750 *ds);
