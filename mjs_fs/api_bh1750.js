@@ -7,9 +7,9 @@ let BH1750 = {
     // ## **`BH1750.create(addr)`**
     // Create a BH1750 instance: an object with the methods described below.
     // `addr` is an i2c address of the BH1750 sensor.
-    create: function (addr) {
+    create: function () {
         let obj = Object.create(BH1750._proto);
-        obj.bh1750 = BH1750._create(addr);
+        obj.bh1750 = BH1750._create();
         return obj.bh1750 ? obj : null;
     },
 
