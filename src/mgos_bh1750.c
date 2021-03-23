@@ -45,6 +45,10 @@ uint8_t get_slot(int addrSlot) {
         return BH1750_ADDR_1;
     }
 
+    if (addrSlot == 2) {
+        return BH1750_ADDR_2;
+    }
+
     return BH1750_ADDR_0;
 }
 
@@ -76,6 +80,9 @@ uint8_t mgos_bh1750_detect_i2c(struct mgos_i2c *i2c) {
   if (mgos_bh1750_probe_addr(i2c, BH1750_ADDR_1)) {
     return BH1750_ADDR_1;
   }
+  if (mgos_bh1750_probe_addr(i2c, BH1750_ADDR_2)) {
+    return BH1750_ADDR_2;
+  }
   return 0;
 }
 
@@ -93,7 +100,7 @@ bool mgos_bh1750_probe(struct mgos_bh1750 *bh) {
 }
 
 struct mgos_bh1750 *mgos_bh1750_create_i2c(struct mgos_i2c *i2c, uint8_t addr) {
-  if (addr != BH1750_ADDR_0 && addr != BH1750_ADDR_1) {
+  if (addr != BH1750_ADDR_0 && addr != BH1750_ADDR_1 && addr != BH1750_ADDR_2) {
     LOG(LL_ERROR, ("Invalid BH1750 address %#x", addr));
     return NULL;
   }

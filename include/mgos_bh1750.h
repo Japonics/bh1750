@@ -26,6 +26,7 @@ enum mgos_bh1750_mode {
 
 #define BH1750_ADDR_0 0x23  // ADDR pin = 0
 #define BH1750_ADDR_1 0x5c  // ADDR pin = 1
+#define BH1750_ADDR_2 0x35  // ADDR pin = 2
 
 struct mgos_i2c;
 struct mgos_bh1750;
