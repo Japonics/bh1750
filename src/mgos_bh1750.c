@@ -223,9 +223,8 @@ bool mgos_bh1750_data_valid(struct mgos_bh1750 *bh) {
   return (wait_ms <= 0);
 }
 
-float mgos_bh1750_read_lux(struct mgos_bh1750 *bh, int *raw_value_out) {
+float mgos_bh1750_read_lux(struct mgos_bh1750 *bh) {
   int raw_value = mgos_bh1750_read_raw(bh);
-  if (raw_value_out != NULL) *raw_value_out = raw_value;
   if (raw_value < 0) {
     return raw_value;
   }

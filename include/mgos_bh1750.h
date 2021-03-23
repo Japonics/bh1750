@@ -74,7 +74,7 @@ bool mgos_bh1750_data_valid(struct mgos_bh1750 *bh);
 // current mode and sensitivity settings.
 // Returns value in lux or a negative value in case of error.
 // If raw is non-NULL, raw sample value is stored there.
-float mgos_bh1750_read_lux(struct mgos_bh1750 *bh, int *raw_value);
+float mgos_bh1750_read_lux(struct mgos_bh1750 *bh);
 
 // Reads measurement result and returns raw register value with no conversion.
 // Returns a negative value in case of error.
